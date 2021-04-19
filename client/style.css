@@ -1,0 +1,17 @@
+.output{
+    margin-top: 50px;
+    width:100%;
+    float:left;
+}
+.username{
+    color: darkgreen;
+    font-size: 20px;
+}
+.list{
+    float:right;
+    width:100%;
+}
+ul{
+    list-style-type: disc;
+    color: #28c928;
+}

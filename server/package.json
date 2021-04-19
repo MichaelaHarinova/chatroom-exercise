@@ -1,0 +1,23 @@
+{
+  "name": "chatroom",
+  "version": "1.0.0",
+  "description": "chatroom exercise ,first wor with node",
+  "main": "index.js",
+  "scripts": {
+    "test": "none"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+github.com:mharin/chatroom-exercise.git"
+  },
+  "keywords": [
+    "chatroom",
+    "node"
+  ],
+  "author": "Michaela Harinova",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "socket.io": "^4.0.1"
+  }
+}
