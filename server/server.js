@@ -1,26 +1,24 @@
 const express = require('express');
 const http = require('http');
 
-
+//------------ server setup and connection to the client ------------
 const app = express();
 const clientPath = `${__dirname}/../client`;
-
-app.use(express.static(clientPath));
 const server = http.createServer(app);
-
 server.listen(8080, () => {
     console.log("server running on " + 8080);
 });
-
-//server setup and connection to the client
 const io = require('socket.io')(server);
+app.use(express.static(clientPath));
 
 let counter = 0;
 let allUsers = [];
+
 io.on('connection', (socket) => {
     console.log(counter + ' someone connected');
     counter++
-
+console.log(allUsers);
+//------------ display of content ------------
     socket.on('sendAll', (data) => {
         io.emit("displayMessage", (data));
     });
@@ -28,13 +26,15 @@ io.on('connection', (socket) => {
         socket.emit("displayMessage", (data));
     });
 
-//joining chat
+
+//------------ joining chat ------------
     socket.on('join', function (user) {
         allUsers.push(user);    //{id: socket.id, name: username}
         io.emit('join', (allUsers));
     });
 
-//leaving chat
+
+//------------ leaving chat ------------
     socket.on('disconnect', () => {
         let ID = socket.id;
         allUsers.forEach( (user, index) => {
@@ -43,5 +43,14 @@ io.on('connection', (socket) => {
         })
         io.emit('join',(allUsers));
     });
+
+
+//------------ private message ------------
+    socket.on('private', function(data){
+            io.to(data.receiver).emit('private', data);
+            socket.emit('displayMessage',data);
+    });
 });
+
+
 

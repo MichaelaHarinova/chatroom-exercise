@@ -1,7 +1,7 @@
 .output{
     margin-top: 50px;
     width:100%;
-    float:left;
+    float:right;
 }
 .username{
     color: darkgreen;
@@ -14,4 +14,20 @@
 ul{
     list-style-type: disc;
     color: #28c928;
+    font-size: 10px;
+}
+p{
+    font-size: 15px;
+    color: dimgrey;
+    cursor: pointer;
+}
+.readonly{
+    border-style: none;
+}
+.textArea{
+    border: 1px  solid black  ;
+    overflow: scroll;
+}
+.userText{
+    color:mediumseagreen;
 }
