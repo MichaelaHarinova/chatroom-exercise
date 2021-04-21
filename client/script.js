@@ -6,7 +6,7 @@ class User {
 }
 
 let sock = io.connect();
-
+document.write("<a href='emojis.html'>Hlavní stránka</a><br>");
 
 //------------ user join ------------
 document.getElementById("join").addEventListener("click", () => {
@@ -29,7 +29,7 @@ sock.on('join', (allUsers) => {
     console.log(allUsers);
     userList.innerHTML = '';
     for (const user of allUsers) {
-      //  console.log("test");
+        //  console.log("test");
         userList.innerHTML += `<br><ul><li>online <p class="p" id="${user.id}">${user.username}</p></li></ul>`;
         setTimeout(() => {
             document.getElementById(user.id).addEventListener("click", () => {
@@ -60,9 +60,14 @@ target = document.getElementById("target")
 sock.on('displayMessage', (data) => {
     console.log(data);
     document.getElementById('content').value = '';
-    target.innerHTML += '<marquee scrollamount="4" scrolldelay="8" ><p class="messageGeneral"><span class="username">' + data.user  + '</span> -> ' + data.message + '</marquee><br> ';
+    target.innerHTML += '<marquee scrollamount="4" scrolldelay="8" ><p class="messageGeneral"><span class="username">' + data.user + '</span> -> ' + data.message + '</marquee><br> ';
     document.getElementById("target").scrollTop = document.getElementById("target").scrollHeight
 });
+
+//emojis
+function injectEmojisToListContent(e) {
+    document.getElementById("content").value += e.innerHTML;
+}
 
 // ------------ send private message ------------
 
@@ -74,13 +79,13 @@ document.getElementById("send").addEventListener("click", () => {
 
     document.getElementById('privateMessage').value = '';
     privateMsg.innerHTML += '<p class="textBreak "><span class="username">' + 'you </span> -> <span class="message">' + receiverName + '</span>: ' + message + '</p><br>';
-    sock.emit('private', ({username: username, receiver: receiver,receiverName: receiverName, message: message}));
+    sock.emit('private', ({username: username, receiver: receiver, receiverName: receiverName, message: message}));
 });
 
 privateMsg = document.getElementById("privateMsg")
 sock.on("private", (data) => {
     // console.log(data);
-    if(sock.id === data.receiver){
+    if (sock.id === data.receiver) {
         document.getElementById('privateMessage').value = '';
         privateMsg.innerHTML += '<p class="textBreak"><span class="username">' + data.username + '</span> -> <span class="message"> you </span>: ' + data.message + '</p>';
     }

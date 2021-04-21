@@ -50,8 +50,8 @@ io.on('connection', (socket) => {
 
 //------------ private message ------------
     socket.on('private', (data) => {
-     // io.to(data.receiver).emit('private', data);
-      io.emit('private',data);
+        // io.to(data.receiver).emit('private', data);
+        io.emit('private', data);
     });
 });
 

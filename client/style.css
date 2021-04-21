@@ -8,7 +8,7 @@
 .output {
     margin-top: 50px;
     padding: 30px 0 0 30px;
-    height: 600px;
+    height: 750px;
     float: right;
     background-color: #fff7f7;
     border-radius: 10px;
@@ -47,6 +47,7 @@ ul {
     font-size: 15px;
     width:87%;
     text-align: center;
+    margin-top:5px;
 }
 
 input::placeholder {
@@ -87,15 +88,15 @@ input{
     margin-top: 50px;
 }
 .logIn{
-    background-image: linear-gradient( rgba(9, 10, 10, 0.8), rgb(125, 101, 122));
+    background-color: rgba(0, 0, 0, .6);
     border-radius: 10px;
 }
 .privateChat{
-    background-image: linear-gradient(to left, rgba(255, 255, 255, 0.8), rgb(125, 101, 122));
+    background-color: rgba(0, 0, 0, .4);
     border-radius: 10px;
 }
 .chatDiv{
-    background-image:linear-gradient(to right, rgb(59, 59, 59), rgb(125, 101, 122)) !important;
+    background-color: rgba(0, 0, 0, .3);
     border-radius: 10px;
 }
 .message{
@@ -107,3 +108,18 @@ input{
     color:dimgrey;
     font-size: 15px;
 }
+
+
+/*............... emojis ...............*/
+
+.emojis {
+    position: absolute;
+    margin:20px 10px 0 0;
+    padding: 25px 15px 10px 20px;
+    border-radius: 20px 20px 20px 20px;
+    background-color: rgba(0, 0, 0, .5);
+}
+.emojis>span{
+    font-size:18px;
+}
+

@@ -7,8 +7,10 @@
           integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <title>Chatroom</title>
 </head>
-<body class="body ">
-<div class="container ">
+<body class="body">
+<div class="container">
+
+    <!-- login and online users -->
     <div class="output col-sm-2 col-md-2 border-left logIn text-light ">
         <label class="form-group" for="username">Your username:</label>
         <input class="card-group" type="text" name="username" id="username">
@@ -18,6 +20,8 @@
         <h5 class="usersOnline">Users online:</h5>
         <ul id="userList" class="list"></ul>
     </div>
+
+    <!-- private chat -->
     <div class="output col-sm-3 col-md-3 border-right border-left privateChat text-light">
         <h5>Private chat:</h5>
         <div class="output textArea scroll" id="privateMsg"></div>
@@ -27,20 +31,71 @@
         <input type="hidden" id="receiverID">
         <label class="form-group" for="privateMessage"></label>
         <input class="card-group" type="text" name="privateMessage" id="privateMessage"
-               placeholder="Write private message...">
+               placeholder="Write private message..." onFocus="this.value=''">
         <br>
-        <button class="btn btn-light text-dark" type="button" name="send" id="send" disabled="disabled">Send to user</button>
+        <button class="btn btn-dark text-light" type="button" name="send" id="send" disabled="disabled">Send to user
+        </button>
     </div>
+
+    <!-- general chat -->
     <div class="output col-sm-7 col-md-7  chatDiv text-light">
         <h5>General chat:</h5>
         <div class="output textArea scroll" id="target"></div>
         <label class="form-group" for="content">Your message to all:</label>
-        <input class="card-group " type="text" name="content" id="content" placeholder="Write something to everyone...">
+        <input class="card-group " type="text" name="content" id="content" placeholder="Write something to everyone..."
+               onFocus="this.value=''">
         <br>
-        <button class="btn btn-light text-dark" type="button" name="sendAll" id="sendAll" disabled="disabled">Send to all
+        <button class="btn btn-dark text-light" type="button" name="sendAll" id="sendAll" disabled="disabled">Send to all
         </button>
-        <button class="btn btn-light text-dark" type="button" name="sendMe" id="sendMe" disabled="disabled">Send to me
+        <button class="btn btn-dark text-light" type="button" name="sendMe" id="sendMe" disabled="disabled">Send to me
         </button>
+
+        <!-- emojis list -->
+        <div class="emojis" style="font-size:20px;">
+            <span onclick="injectEmojisToListContent(this)">😃</span>
+            <span onclick="injectEmojisToListContent(this)">😁</span>
+            <span onclick="injectEmojisToListContent(this)">😅</span>
+            <span onclick="injectEmojisToListContent(this)">🤣</span>
+            <span onclick="injectEmojisToListContent(this)">😉</span>
+            <span onclick="injectEmojisToListContent(this)">😊</span>
+            <span onclick="injectEmojisToListContent(this)">😇</span>
+            <span onclick="injectEmojisToListContent(this)">😲</span>
+            <span onclick="injectEmojisToListContent(this)">😳</span>
+            <span onclick="injectEmojisToListContent(this)">😥</span>
+
+            <span onclick="injectEmojisToListContent(this)">🥰</span>
+            <span onclick="injectEmojisToListContent(this)">😍</span>
+            <span onclick="injectEmojisToListContent(this)">😘</span>
+            <span onclick="injectEmojisToListContent(this)">😜</span>
+            <span onclick="injectEmojisToListContent(this)">🤫</span>
+            <span onclick="injectEmojisToListContent(this)">🤤</span>
+            <span onclick="injectEmojisToListContent(this)">😈</span>
+            <span onclick="injectEmojisToListContent(this)">😻</span>
+            <span onclick="injectEmojisToListContent(this)">🙈</span>
+            <span onclick="injectEmojisToListContent(this)">🙊</span>
+            <br>
+            <span onclick="injectEmojisToListContent(this)">💘</span>
+            <span onclick="injectEmojisToListContent(this)">💕</span>
+            <span onclick="injectEmojisToListContent(this)">💞</span>
+            <span onclick="injectEmojisToListContent(this)">💌</span>
+            <span onclick="injectEmojisToListContent(this)">💑</span>
+            <span onclick="injectEmojisToListContent(this)">💐</span>
+            <span onclick="injectEmojisToListContent(this)">🌹</span>
+            <span onclick="injectEmojisToListContent(this)">🎀</span>
+            <span onclick="injectEmojisToListContent(this)">🍨</span>
+            <span onclick="injectEmojisToListContent(this)">🍭</span>
+
+            <span onclick="injectEmojisToListContent(this)">💃</span>
+            <span onclick="injectEmojisToListContent(this)">🏄</span>
+            <span onclick="injectEmojisToListContent(this)">🛀</span>
+            <span onclick="injectEmojisToListContent(this)">🏩</span>
+            <span onclick="injectEmojisToListContent(this)">👑</span>
+            <span onclick="injectEmojisToListContent(this)">🦁</span>
+            <span onclick="injectEmojisToListContent(this)">🦄</span>
+            <span onclick="injectEmojisToListContent(this)">🎠</span>
+            <span onclick="injectEmojisToListContent(this)">🧸</span>
+            <span onclick="injectEmojisToListContent(this)">💍</span>
+        </div>
     </div>
 </div>
 </body>
