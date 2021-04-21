@@ -29,8 +29,8 @@ sock.on('join', (allUsers) => {
     console.log(allUsers);
     userList.innerHTML = '';
     for (const user of allUsers) {
-        console.log("test");
-        userList.innerHTML += `<br><ul><li class="list">online <p id="${user.id}">${user.username}</p></li></ul>`;
+      //  console.log("test");
+        userList.innerHTML += `<br><ul><li class="list">online <p class="p" id="${user.id}">${user.username}</p></li></ul>`;
         setTimeout(() => {
             document.getElementById(user.id).addEventListener("click", () => {
                 document.getElementById("receiverName").value = user.username;
@@ -60,7 +60,8 @@ target = document.getElementById("target")
 sock.on('displayMessage', (data) => {
     console.log(data);
     document.getElementById('content').value = '';
-    target.innerHTML += '<br><marquee scrollamount="4" scrolldelay="8" ><p ><span class="username">' + data.username  + '</span> -> ' + data.message + '</marquee> ';
+    target.innerHTML += '<marquee scrollamount="4" scrolldelay="8" ><p class="p"><span class="username">' + data.user  + '</span> -> ' + data.message + '</marquee><br> ';
+    document.getElementById("target").scrollTop = document.getElementById("target").scrollHeight
 });
 
 // ------------ send private message ------------
@@ -69,10 +70,11 @@ document.getElementById("send").addEventListener("click", () => {
     let message = document.getElementById("privateMessage").value;
     let username = document.getElementById("username").value;
     let receiver = document.getElementById("receiverID").value;
+    let receiverName = document.getElementById("receiverName").value;
 
     document.getElementById('privateMessage').value = '';
-    privateMsg.innerHTML += '<li><em><strong>' + username + ' -> </strong>: ' + message + '</em></li>';
-    sock.emit('private', ({username: username, receiver: receiver, message: message}));
+    privateMsg.innerHTML += '<p class="textBreak"><strong>' + username + ' -> ' + receiverName + '</strong>: ' + message + '</p><br>';
+    sock.emit('private', ({username: username, receiver: receiver,receiverName: receiverName, message: message}));
 });
 
 privateMsg = document.getElementById("privateMsg")
@@ -80,9 +82,9 @@ sock.on("private", (data) => {
     // console.log(data);
     if(sock.id === data.receiver){
         document.getElementById('privateMessage').value = '';
-        privateMsg.innerHTML += '<li><em><strong>' + data.username + ' -> </strong>: ' + data.message + '</em></li>';
+        privateMsg.innerHTML += '<p class="textBreak"><strong>' + data.username + ' -> </strong>: ' + data.message + '</p>';
     }
-
+    document.getElementById("privateMsg").scrollTop = document.getElementById("privateMsg").scrollHeight
 });
 
 
