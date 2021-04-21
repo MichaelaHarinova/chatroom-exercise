@@ -19,23 +19,22 @@
 </div>
 <br>
 <div class="container output col-sm-4">
-    <h5>General:</h5>
+    <h5>General chat:</h5>
     <div class="output " id="target"></div>
-    <label class="form-group" for="content">Type your message in general chat:</label>
-    <input class="card-group col-6" type="text" name="content" id="content">
+    <label class="form-group" for="content">Your message to all:</label>
+    <input class="card-group col-6 placeholder" type="text" name="content" id="content" placeholder="Write something to everyone...">
     <br>
     <button class="btn btn-secondary" type="button" name="sendAll" id="sendAll" disabled="disabled">Send to all</button>
     <button class="btn btn-secondary" type="button" name="sendMe" id="sendMe" disabled="disabled">Send to me</button>
 </div>
 <div class="container output col-sm-4 border-right border-left">
-    <h5>Private:</h5>
-    <p>Click on user to who you want to send a message.</p>
-    <div class="output" id="private"></div>
-    <label class="form-group" for="receiverName">Your receiver is:</label>
-    <input class="card-group readonly userText" type="text" name="receiver" id="receiverName" readonly>
+    <h5>Private chat:</h5>
+    <div class="output" id="privateMsg"></div>
+    <label class="form-group" for="receiverName">To:</label>
+    <input class="card-group readonly userText placeholder row-3" type="text" name="receiver" id="receiverName" readonly placeholder="Click on online user...">
     <input type="hidden" id="receiverID">
-    <label class="form-group" for="privateMessage">Type your private message:</label>
-    <input class="card-group col-6" type="text" name="privateMessage" id="privateMessage">
+    <label class="form-group" for="privateMessage"></label>
+    <input class="card-group col-6 placeholder" type="text" name="privateMessage" id="privateMessage" placeholder="Write private message...">
     <br>
     <button class="btn btn-secondary" type="button" name="send" id="send" disabled="disabled">Send to user</button>
 </div>

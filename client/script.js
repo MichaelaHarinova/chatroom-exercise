@@ -7,6 +7,7 @@ class User {
 
 let sock = io.connect();
 
+
 //------------ user join ------------
 document.getElementById("join").addEventListener("click", () => {
     let username = document.getElementById("username").value;
@@ -20,22 +21,22 @@ document.getElementById("join").addEventListener("click", () => {
     sock.emit('join', (new User(sock.id, username)));
 });
 
+
 //------------ list of online users ------------
 userList = document.getElementById("userList")
 
 sock.on('join', (allUsers) => {
-      console.log(allUsers);
+    console.log(allUsers);
     userList.innerHTML = '';
     for (const user of allUsers) {
         console.log("test");
         userList.innerHTML += `<br><ul><li class="list">online <p id="${user.id}">${user.username}</p></li></ul>`;
         setTimeout(() => {
-            document.getElementById(user.id).addEventListener("click",()=>{
+            document.getElementById(user.id).addEventListener("click", () => {
                 document.getElementById("receiverName").value = user.username;
                 document.getElementById("receiverID").value = user.id;
             })
-        },1)
-
+        }, 1)
     }
 });
 
@@ -54,16 +55,16 @@ document.getElementById("sendMe").addEventListener("click", () => {
     sock.emit('sendMe', ({user: username, message: message}));
 });
 
-//------------ send message display ------------
+//------------ send general message display ------------
 target = document.getElementById("target")
 sock.on('displayMessage', (data) => {
-     // console.log(data);
+    console.log(data);
     document.getElementById('content').value = '';
-    target.innerHTML += `<br><marquee scrollamount="4" scrolldelay="8" ><p><span class="username"> ${data.user} -> : </span>${data.message} </p> </marquee> `;
+    target.innerHTML += '<br><marquee scrollamount="4" scrolldelay="8" ><p ><span class="username">' + data.username  + '</span> -> ' + data.message + '</marquee> ';
 });
 
+// ------------ send private message ------------
 
-//sending
 document.getElementById("send").addEventListener("click", () => {
     let message = document.getElementById("privateMessage").value;
     let username = document.getElementById("username").value;
@@ -74,11 +75,14 @@ document.getElementById("send").addEventListener("click", () => {
     sock.emit('private', ({username: username, receiver: receiver, message: message}));
 });
 
-privateMsg = document.getElementById("private")
-sock.on("private", function (data) {
-    console.log(data);
-    document.getElementById('privateMessage').value = '';
-    privateMsg.innerHTML += '<li><em><strong>' + data.username + ' -> </strong>: ' + data.message + '</em></li>';
+privateMsg = document.getElementById("privateMsg")
+sock.on("private", (data) => {
+    // console.log(data);
+    if(sock.id === data.receiver){
+        document.getElementById('privateMessage').value = '';
+        privateMsg.innerHTML += '<li><em><strong>' + data.username + ' -> </strong>: ' + data.message + '</em></li>';
+    }
+
 });
 
 

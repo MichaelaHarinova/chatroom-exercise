@@ -1,6 +1,7 @@
 const express = require('express');
 const http = require('http');
 
+
 //------------ server setup and connection to the client ------------
 const app = express();
 const clientPath = `${__dirname}/../client`;
@@ -17,7 +18,9 @@ let allUsers = [];
 io.on('connection', (socket) => {
     console.log(counter + ' someone connected');
     counter++
-console.log(allUsers);
+    console.log(allUsers);
+
+
 //------------ display of content ------------
     socket.on('sendAll', (data) => {
         io.emit("displayMessage", (data));
@@ -37,18 +40,18 @@ console.log(allUsers);
 //------------ leaving chat ------------
     socket.on('disconnect', () => {
         let ID = socket.id;
-        allUsers.forEach( (user, index) => {
-           if(user.id === ID)
-            allUsers.splice(index, 1);
+        allUsers.forEach((user, index) => {
+            if (user.id === ID)
+                allUsers.splice(index, 1);
         })
-        io.emit('join',(allUsers));
+        io.emit('join', (allUsers));
     });
 
 
 //------------ private message ------------
-    socket.on('private', function(data){
-            io.to(data.receiver).emit('private', data);
-            socket.emit('displayMessage',data);
+    socket.on('private', (data) => {
+     // io.to(data.receiver).emit('private', data);
+      io.emit('private',data);
     });
 });
 
