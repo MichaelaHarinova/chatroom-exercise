@@ -1,21 +1,23 @@
 .body{
-    background-color: grey;
+    background-image: linear-gradient( rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)),url("img/539321.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
 }
 
 .output {
     margin-top: 50px;
-    height: 100%;
+    padding: 30px 0 0 30px;
+    height: 600px;
     float: right;
-    background-color: #fdfdfd;
+    background-color: #fff7f7;
+    border-radius: 10px;
 }
 
 .username {
     color: darkgreen;
-    font-size: 20px;
-}
-
-.list {
-    float: right;
+    font-size: 15px;
+    font-weight: bold;
 }
 
 ul {
@@ -26,7 +28,7 @@ ul {
 
 .p {
     font-size: 20px;
-    color: dimgrey;
+    color: #bedec3;
     cursor: pointer;
 }
 
@@ -35,21 +37,30 @@ ul {
     overflow: auto;
     width: 100%;
     height: 300px;
+    border-radius: 10px;
 }
 
 .userPrivate {
     color: mediumseagreen;
     border-style: none;
-    font-size: 20px;
-    width:70%;
+    outline: none;
+    font-size: 15px;
+    width:87%;
+    text-align: center;
 }
 
 input::placeholder {
     font-size: 15px;
+    border-radius: 10px;
+    outline: none;
+    padding-left:5px;
 }
 
 input{
     width: 100%;
+    border-radius: 10px;
+    outline: none;
+    padding-left:5px;
 }
 
 .scroll::-webkit-scrollbar {
@@ -68,12 +79,31 @@ input{
 
 .textBreak {
     overflow-wrap: break-word;
+    color:dimgrey;
+    padding-left:5px;
 }
 
 .usersOnline {
     margin-top: 50px;
 }
 .logIn{
-    margin:20px;
-    float:right;
+    background-image: linear-gradient( rgba(9, 10, 10, 0.8), rgb(125, 101, 122));
+    border-radius: 10px;
+}
+.privateChat{
+    background-image: linear-gradient(to left, rgba(255, 255, 255, 0.8), rgb(125, 101, 122));
+    border-radius: 10px;
+}
+.chatDiv{
+    background-image:linear-gradient(to right, rgb(59, 59, 59), rgb(125, 101, 122)) !important;
+    border-radius: 10px;
+}
+.message{
+    color:rebeccapurple;
+    font-size: 15px;
+    font-weight: bold;
+}
+.messageGeneral{
+    color:dimgrey;
+    font-size: 15px;
 }
