@@ -1,5 +1,5 @@
-.body{
-    background-image: linear-gradient( rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)),url("img/539321.jpg");
+.body {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)), url("img/539321.jpg");
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
@@ -45,23 +45,23 @@ ul {
     border-style: none;
     outline: none;
     font-size: 15px;
-    width:87%;
+    width: 87%;
     text-align: center;
-    margin-top:5px;
+    margin-top: 5px;
 }
 
 input::placeholder {
     font-size: 15px;
     border-radius: 10px;
     outline: none;
-    padding-left:5px;
+    padding-left: 5px;
 }
 
-input{
+input {
     width: 100%;
     border-radius: 10px;
     outline: none;
-    padding-left:5px;
+    padding-left: 5px;
 }
 
 .scroll::-webkit-scrollbar {
@@ -80,32 +80,37 @@ input{
 
 .textBreak {
     overflow-wrap: break-word;
-    color:dimgrey;
-    padding-left:5px;
+    color: dimgrey;
+    padding-left: 5px;
 }
 
 .usersOnline {
     margin-top: 50px;
 }
-.logIn{
+
+.logIn {
     background-color: rgba(0, 0, 0, .6);
     border-radius: 10px;
 }
-.privateChat{
+
+.privateChat {
     background-color: rgba(0, 0, 0, .4);
     border-radius: 10px;
 }
-.chatDiv{
+
+.chatDiv {
     background-color: rgba(0, 0, 0, .3);
     border-radius: 10px;
 }
-.message{
-    color:rebeccapurple;
+
+.message {
+    color: rebeccapurple;
     font-size: 15px;
     font-weight: bold;
 }
-.messageGeneral{
-    color:dimgrey;
+
+.messageGeneral {
+    color: dimgrey;
     font-size: 15px;
 }
 
@@ -114,12 +119,13 @@ input{
 
 .emojis {
     position: absolute;
-    margin:20px 10px 0 0;
+    margin: 20px 10px 0 0;
     padding: 25px 15px 10px 20px;
     border-radius: 20px 20px 20px 20px;
     background-color: rgba(0, 0, 0, .5);
 }
-.emojis>span{
-    font-size:18px;
+
+.emojis > span {
+    font-size: 18px;
 }
 

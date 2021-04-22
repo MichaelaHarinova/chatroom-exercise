@@ -6,7 +6,7 @@ class User {
 }
 
 let sock = io.connect();
-document.write("<a href='emojis.html'>Hlavní stránka</a><br>");
+
 
 //------------ user join ------------
 document.getElementById("join").addEventListener("click", () => {
